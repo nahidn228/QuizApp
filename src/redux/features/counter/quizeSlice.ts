@@ -25,11 +25,11 @@ export const quizSlice = createSlice({
       state.userAnswer[questionIndex] = answer;
     },
     nextQuestion: (state) => {
-      // if (state.currentQuestionIndex < state.questions.length - 1) {
-      //   state.currentQuestionIndex += 1;
-      // }
+      if (state.currentQuestionIndex < state.questions.length - 1) {
+        state.currentQuestionIndex += 1;
+      }
 
-      state.currentQuestionIndex += 1;
+      // state.currentQuestionIndex += 1;
     },
 
     previousQuestion: (state) => {
@@ -37,9 +37,13 @@ export const quizSlice = createSlice({
         state.currentQuestionIndex -= 1;
       }
     },
+    completeQuiz: (state) => {
+      state.quizComplete = true;
+    },
   },
 });
 
-export const { setAnswer, nextQuestion, previousQuestion } = quizSlice.actions;
+export const { setAnswer, nextQuestion, previousQuestion, completeQuiz } =
+  quizSlice.actions;
 
 export default quizSlice.reducer;
