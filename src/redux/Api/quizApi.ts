@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-
 export const quizApi = createApi({
   reducerPath: "quiz",
   baseQuery: fetchBaseQuery({
@@ -14,7 +13,12 @@ export const quizApi = createApi({
         body,
       }),
     }),
+
+    getAllQuiz: builder.query({
+      query: () => "/quizzes",
+      providesTags: ["quiz"],
+    }),
   }),
 });
 
-export const { useAddQuizMutation } = quizApi;
+export const { useAddQuizMutation, useGetAllQuizQuery } = quizApi;
