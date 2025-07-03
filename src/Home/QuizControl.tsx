@@ -3,11 +3,12 @@ import {
   completeQuiz,
   nextQuestion,
   previousQuestion,
-} from "@/redux/features/counter/quizeSlice";
+} from "@/redux/features/counter/quizSlice";
+
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
 
 export default function QuizControl() {
-  const { currentQuestionIndex, userAnswer, questions, quizComplete } =
+  const { questions, currentQuestionIndex, userAnswer, quizComplete } =
     useAppSelector((state) => state.quiz);
 
   const isSelectedAnswer = userAnswer[currentQuestionIndex] !== null;
